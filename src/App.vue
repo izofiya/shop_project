@@ -1,16 +1,29 @@
 <template>
   <div id="app">
     <page-header />
+    <dollar-rate :rate="rate" />
+    <product-list />
+    <basket />
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import PageHeader from "./components/Header";
+import Basket from "./components/Basket";
+import ProductList from "./components/ProductList";
+import DollarRate from "./components/DollarRate";
 
 export default {
   name: "App",
   components: {
     PageHeader,
+    Basket,
+    ProductList,
+    DollarRate,
+  },
+  computed: {
+    ...mapGetters(["rate"]),
   },
 };
 </script>
@@ -20,12 +33,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-image: linear-gradient( to right, rgb(240, 214, 245), rgba(22, 121, 150, 0.5) );
+  background-color: #f5ea89;
 }
-
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: left;
-  color: #2c3e50;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #054688;
 }
 </style>
